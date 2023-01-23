@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <h1>Serve</h1>
+    <p>
+      <a href="./downloads">downloads</a>
+      <a href="./uploads">uploads</a>
+    </p>
+    <form
+      ref="uploadForm"
+      id="uploadForm"
+      action="http://localhost:8081/upload"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="sampleFile" />
+      <input type="submit" value="Upload!" />
+    </form>
+  </body>
+</html>
