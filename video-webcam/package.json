@@ -1,0 +1,15 @@
+{
+  "name": "video-webcam",
+  "version": "0.0.1",
+  "description": "The bare minimum to use html5 video element to capture webcam output.",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve . -l 8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "14.1.2"
+  }
+}
