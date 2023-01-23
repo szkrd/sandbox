@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Please open the debugger (usually by pressing F12) and check the
+      console/network tabs.
+    </p>
+    <p>http://localhost:4000/foobar-good</p>
+    <button id="Submit1">call</button>
+    <p>http://localhost:4001/foobar-bad</p>
+    <button id="Submit2">call</button>
+    <script>
+      document.getElementById("Submit1").addEventListener("click", () => {
+        axios("http://localhost:4000/foobar-good")
+          .then((data) => console.log("SUCCESS for call 1", data))
+          .catch((error) => console.log("ERROR for call 1", err));
+      });
+
+      document.getElementById("Submit2").addEventListener("click", () => {
+        axios("http://localhost:4001/foobar-bad")
+          .then((data) => console.log("SUCCESS for call 2", data))
+          .catch((error) => console.log("ERROR for call 2", err));
+      });
+    </script>
+  </body>
+</html>

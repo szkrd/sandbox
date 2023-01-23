@@ -2,7 +2,7 @@
   "name": "cra-ts-202301",
   "version": "0.1.0",
   "private": true,
-  "description": "CRA sandbox, with scss modules, typescript, react router v6, skeletoncss",
+  "description": "CRA sandbox, with scss modules, typescript, react router v6, skeletoncss.",
   "dependencies": {
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",

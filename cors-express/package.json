@@ -1,0 +1,24 @@
+{
+  "name": "cors-express",
+  "version": "1.0.0",
+  "description": "CORS enabled express example to help backend devs with cross domain api calls.",
+  "main": "server.js",
+  "scripts": {
+    "client": "serve .",
+    "server-cors": "node server-cors",
+    "server-nocors": "node server-nocors",
+    "dev": "concurrently --kill-others \"npm run client\" \"node server-cors\" \"node server-nocors\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.18.1",
+    "serve": "14.1.2"
+  },
+  "devDependencies": {
+    "concurrently": "7.6.0",
+    "prettier": "2.8.3"
+  }
+}
