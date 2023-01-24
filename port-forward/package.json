@@ -1,0 +1,8 @@
+{
+  "name": "port-forward",
+  "version": "1.0.0",
+  "description": "Port forwarding on windows from one interface/port to another, using ROT cypher.",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
