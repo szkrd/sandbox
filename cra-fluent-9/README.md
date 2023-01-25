@@ -11,6 +11,10 @@
 - typescript in vscode seems to have problems with auto import as we type
   (usually it works with quick fix; it's only an issue with fluent components)
 - props (like size="small") seem to prefer strings (used to be enums), like `size?: 'small' | 'medium' | 'large';` (instead of ButtonSize.Small)
+- added [pullstate](https://lostpebble.github.io/pullstate/) just for fun
+  - I'm not sure if I like it more than _react-tracked_ (which is way simpler)
+  - immer deep updates are kinda uncomfortable
+  - but it has subscription and SSR support, which is nice
 
 ---
 

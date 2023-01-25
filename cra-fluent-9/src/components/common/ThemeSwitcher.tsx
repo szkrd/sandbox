@@ -1,16 +1,12 @@
-import { WeatherMoon16Regular, WeatherSunnyFilled } from '@fluentui/react-icons';
 import { Switch } from '@fluentui/react-components';
+import { WeatherMoon16Regular, WeatherSunnyFilled } from '@fluentui/react-icons';
 import { FC, useCallback } from 'react';
-import { useAppState } from '../../state/appState';
-import { flipUiStateTheme, UiTheme } from '../../state/uiState';
+import { uiStore, UiTheme, uiToggleTheme } from '../../store/uiStore';
 
-interface IThemeSwitcher {}
-
-const ThemeSwitcher: FC<IThemeSwitcher> = () => {
-  const [appState, setAppState] = useAppState();
-  const uiState = appState.ui;
-  const isLight = uiState.theme === UiTheme.Light;
-  const handleClick = useCallback(() => flipUiStateTheme(setAppState), [setAppState]);
+const ThemeSwitcher: FC = () => {
+  const theme = uiStore.useState((draft) => draft.theme);
+  const isLight = theme === UiTheme.Light;
+  const handleClick = useCallback(() => uiStore.update(uiToggleTheme), []);
   // DarkTheme20Regular is a single icon (half dark, half light)
   return (
     <div>

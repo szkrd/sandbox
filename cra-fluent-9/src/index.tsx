@@ -1,4 +1,4 @@
-import { FluentProvider, teamsLightTheme, teamsDarkTheme } from '@fluentui/react-components';
+import { FluentProvider, teamsDarkTheme, teamsLightTheme } from '@fluentui/react-components';
 import 'modern-normalize';
 import { FC, PropsWithChildren } from 'react';
 import ReactDOM from 'react-dom/client';
@@ -8,8 +8,7 @@ import ComponentsPage from './components/ComponentsPage';
 import LandingPage from './components/LandingPage';
 import StylingPage from './components/StylingPage';
 import { RouterPaths } from './routerPaths';
-import { AppStateProvider, useAppState } from './state/appState';
-import { UiTheme } from './state/uiState';
+import { uiStore, UiTheme } from './store/uiStore';
 import './styles/main.scss';
 
 const router = createHashRouter([
@@ -36,8 +35,10 @@ const router = createHashRouter([
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 const FluentProviderWithContext: FC<PropsWithChildren> = ({ children }) => {
-  const [appState] = useAppState();
-  const isLightTheme = appState?.ui?.theme === UiTheme.Light;
+  // const [ui] = useUiState();
+  // console.log('2 top level>>>', ui);
+  const ui = uiStore.useState((draft) => draft);
+  const isLightTheme = ui.theme === UiTheme.Light;
   return (
     <FluentProvider theme={isLightTheme ? teamsLightTheme : teamsDarkTheme} style={{ height: '100%' }}>
       {children}
@@ -47,9 +48,7 @@ const FluentProviderWithContext: FC<PropsWithChildren> = ({ children }) => {
 
 // root.render(<React.StrictMode><App /></React.StrictMode>); - original strict mode without router
 root.render(
-  <AppStateProvider>
-    <FluentProviderWithContext>
-      <RouterProvider router={router} />
-    </FluentProviderWithContext>
-  </AppStateProvider>
+  <FluentProviderWithContext>
+    <RouterProvider router={router} />
+  </FluentProviderWithContext>
 );

@@ -11,6 +11,7 @@ import { CalendarMonthRegular } from '@fluentui/react-icons';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { RouterPaths } from '../routerPaths';
+import { uiStore } from '../store/uiStore';
 import { Paragraph } from './common/Paragraph';
 import moduleStyles from './StylingPage.module.scss';
 
@@ -33,9 +34,13 @@ const useStyles = makeStyles({
 });
 
 const StylingPage: FC = () => {
+  const theme = uiStore.useState((draft) => draft.theme);
   const overrides = useStyles();
   return (
     <div>
+      <Paragraph>
+        Theme: <strong>{theme}</strong>
+      </Paragraph>
       <Paragraph>
         List of color tokens can be found{' '}
         <FluentLink href="https://react.fluentui.dev/?path=/docs/theme-colors--page">here</FluentLink>.
