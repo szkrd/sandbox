@@ -1,4 +1,12 @@
-import { Button, Link, makeStyles, shorthands as sh, tokens, mergeClasses } from '@fluentui/react-components';
+import {
+  Button,
+  CompoundButton,
+  Link,
+  makeStyles,
+  mergeClasses,
+  shorthands as sh,
+  tokens,
+} from '@fluentui/react-components';
 import { CalendarMonthRegular } from '@fluentui/react-icons';
 import { FC } from 'react';
 import { Paragraph } from './common/Paragraph';
@@ -43,6 +51,16 @@ const StylingPage: FC = () => {
       </Paragraph>
       <Paragraph>
         <Button className={mergeClasses(overrides.button, moduleStyles.button)}>Custom button</Button>
+      </Paragraph>
+      <Paragraph>Compound button styled hackishly using the scss module:</Paragraph>
+      <Paragraph>
+        <CompoundButton
+          icon={<CalendarMonthRegular />}
+          secondaryContent="Secondary content"
+          className={moduleStyles.compoundButton}
+        >
+          Example
+        </CompoundButton>
       </Paragraph>
     </div>
   );

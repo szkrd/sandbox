@@ -1,4 +1,27 @@
 button.button {
-  // this needs the extra specificity
+  // this needs the extra specificity (or an !important)
   border-color: orange;
+}
+
+button.compoundButton {
+  background-color: var(--colorPaletteDarkGreenBackground2);
+  color: var(--colorPaletteDarkGreenForeground2);
+  border-color: var(--colorPaletteDarkGreenBorderActive);
+
+  :global(.fui-Button__icon) {
+    opacity: 0.8;
+  }
+
+  &:hover {
+    background-color: var(--colorPaletteSeafoamBackground2);
+    color: var(--colorPaletteSeafoamForeground2);
+    border-color: var(--colorPaletteSeafoamBorderActive);
+  }
+
+  // active only works with important
+  &:active {
+    background-color: var(--colorPaletteLightTealBackground2) !important;
+    color: var(--colorPaletteLightTealForeground2) !important;
+    border-color: var(--colorPaletteLightTealBorderActive) !important;
+  }
 }
