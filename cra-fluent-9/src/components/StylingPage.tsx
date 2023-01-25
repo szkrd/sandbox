@@ -1,7 +1,7 @@
 import {
   Button,
   CompoundButton,
-  Link,
+  Link as FluentLink,
   makeStyles,
   mergeClasses,
   shorthands as sh,
@@ -9,6 +9,8 @@ import {
 } from '@fluentui/react-components';
 import { CalendarMonthRegular } from '@fluentui/react-icons';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
+import { RouterPaths } from '../routerPaths';
 import { Paragraph } from './common/Paragraph';
 import moduleStyles from './StylingPage.module.scss';
 
@@ -36,7 +38,18 @@ const StylingPage: FC = () => {
     <div>
       <Paragraph>
         List of color tokens can be found{' '}
-        <Link href="https://react.fluentui.dev/?path=/docs/theme-colors--page">here</Link>.
+        <FluentLink href="https://react.fluentui.dev/?path=/docs/theme-colors--page">here</FluentLink>.
+        <br />
+        Icons:{' '}
+        <FluentLink href="https://github.com/microsoft/fluentui-system-icons/blob/main/icons_regular.md">
+          regular
+        </FluentLink>
+        ,{' '}
+        <FluentLink href="https://github.com/microsoft/fluentui-system-icons/blob/main/icons_filled.md">
+          filled
+        </FluentLink>{' '}
+        (<FluentLink href="https://www.npmjs.com/package/@fluentui/react-icons">repo: @fluentui/react-icons</FluentLink>
+        )
       </Paragraph>
       <Paragraph>
         <Button appearance="primary">Primary button</Button>
@@ -61,6 +74,10 @@ const StylingPage: FC = () => {
         >
           Example
         </CompoundButton>
+      </Paragraph>
+      <Paragraph>
+        Links: <FluentLink href="https://google.com/">fluent link</FluentLink> vs{' '}
+        <Link to={RouterPaths.Landing}>react router link</Link>
       </Paragraph>
     </div>
   );

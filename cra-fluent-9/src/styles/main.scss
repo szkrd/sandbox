@@ -8,3 +8,22 @@ body,
   padding: 0;
   height: 100%;
 }
+
+// this is needed, because fluent Link has its own Griffel styling (which works with theming)
+// but we need the react router Link, which does not (so I had to copy the styling from fluent's code)
+// TODO: it's still a bit off, but hunting down griffel css rules and classes is HUGE pain
+a:not(.fui-Link) {
+  cursor: pointer;
+  text-decoration-line: none;
+  color: var(--colorBrandForegroundLink);
+
+  &:hover {
+    text-decoration-line: underline;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+  }
+}
